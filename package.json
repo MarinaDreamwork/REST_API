@@ -4,7 +4,7 @@
   "description": "rest api and authorization",
   "main": "app.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node app.js",
+    "start": "NODE_ENV=production node app.js",
     "serve": "cross-env NODE_ENV=development nodemon app.js",
     "test": "cross-env NODE_ENV=test jest --detectOpenHandles --testTimeout=15000",
     "heroku-postbuild": "npm install && npm start"
@@ -22,6 +22,7 @@
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "express-validator": "^6.14.2",
+    "heroku": "^7.62.0",
     "jsonwebtoken": "^8.5.1",
     "pg": "^8.7.3",
     "pgtools": "^0.3.2",
