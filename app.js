@@ -20,8 +20,8 @@ app.use(cors({
 }));
 
 app.use('/', routes);
-app.get('*', (req, res) => {
-  res.sendFile('Welcome to REST API service Nodejs and Express');
+app.get('/', (req, res) => {
+  res.end('<h1>Welcome to REST API service Nodejs and Express</h1>');
 });
 
 if(process.env.NODE_ENV === 'production') {
