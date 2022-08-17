@@ -10,7 +10,6 @@
   "scripts": {
     "start": "NODE_ENV=production node app.js",
     "serve": "cross-env NODE_ENV=development nodemon app.js",
-    "test": "cross-env NODE_ENV=test jest --detectOpenHandles --testTimeout=15000",
     "heroku-postbuild": "npm install && npm start"
   },
   "keywords": [
