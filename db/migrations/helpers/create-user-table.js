@@ -1,0 +1,1 @@
+module.exports = 'CREATE TABLE IF NOT EXISTS users (uid uuid DEFAULT uuid_generate_v1(), email VARCHAR(100) NOT NULL, password VARCHAR(100) NOT NULL, nickname VARCHAR(30) NOT NULL );';

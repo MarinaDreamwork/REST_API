@@ -1,0 +1,1 @@
+module.exports = ' CREATE TABLE IF NOT EXISTS tag (id SERIAL NOT NULL PRIMARY KEY, creator UUID NOT NULL, name VARCHAR(40) NOT NULL, sortorder INTEGER DEFAULT 0 );';
