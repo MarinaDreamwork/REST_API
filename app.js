@@ -20,9 +20,6 @@ app.use(cors({
 }));
 
 app.use('/', routes);
-app.get('*', (req, res) => {
-  res.end('<h1>Welcome to REST API service Nodejs and Express</h1>');
-});
 
 if(process.env.NODE_ENV === 'production') {
   console.log('production');
