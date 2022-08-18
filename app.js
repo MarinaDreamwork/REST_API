@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors({
   credentials: true,
-  origin: '*',
+  origin: ['http://127.0.0.1:5432'],
   optionsSuccessStatus: 200
 }));
 
