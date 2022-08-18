@@ -5,8 +5,8 @@
 2. Define environment valiable for the port for the server listening (PORT);
 3. Add environment valiables data for your Postgres DB (DB_HOST, DB_NAME, DB_USER, DB_PASSWORD);
 4. For creating jwt-tokens define secret token as TOKEN in your .env file;
-5. For the development mode use command npm run serve
-6. For the production mode use command npm run prod-deploy
+5. For the development mode use command ```npm run serve```
+6. For the production mode use command ```npm run prod-deploy```
 
 ### If you want to try with deployed app
 1. Base URL is [https://rest-api-backend-app.herokuapp.com/];
@@ -30,57 +30,77 @@
 | DELETE | /user/tag/{id} | Remove tag from authorized user by id |
 | GET | /user/tag/my | Receiving all authorized user tags |
 
-Method: POST /signin
+**Method: POST /signin**
 request body should include this fileds:
+```json
 {
   email: "a@gmail.com",
   password: "ABCdef123",
   nickname: "abc"
 }
+```
 
-field email should be in email format or server will return an error:
-{ error: [
-  {
-    "value": "hostel",
-    "msg": "Email format is not correct",
-    "param": "email",
-    "location": "body"
-  }
-] }
-field email should be unique or server will return an error:
+Field **email** should be in email format or server will return an error:
+```json
+{ 
+  error: [
+    {
+      "value": "hostel",
+      "msg": "Email format is not correct",
+      "param": "email",
+      "location": "body"
+    }
+  ] 
+}
+```
+
+Field **email** should be unique or server will return an error:
+```json
 {
   error: {
     message: 'EMAIL_EXISTS',
     code: 400
   }
 }
+```
 
-field password should include at least one uppercase letter, one number, minimum - 8 chars at length or server will return an error:
-{ error: [
-  {
-    "value": "jhdgjdsh",
-    "msg": "Password should have at least one number",
-    "param": "password",
-    "location": "body"
-  }
-] }
+Field **password** should include at least one uppercase letter, one number, minimum - 8 chars at length or server will return an error:
+```json
+{ 
+  error: [
+    {
+      "value": "jhdgjdsh",
+      "msg": "Password should have at least one number",
+      "param": "password",
+      "location": "body"
+    }
+  ] 
+}
+```
 
-field nickname should not be empty or server will return an error:
- { error: [
-  {
-    "value": "",
-    "msg": "Nickname should not be empty",
-    "param": "nickname",
-    "location": "body"
-  }
- ] }  
- field nickname should be unique or server will return an error:
+Field **nickname** should not be empty or server will return an error:
+```json
+ { 
+  error: [
+    {
+      "value": "",
+      "msg": "Nickname should not be empty",
+      "param": "nickname",
+      "location": "body"
+    }
+  ] 
+}
+```
+
+ Field **nickname** should be unique or server will return an error:
+ ```json
  {
   error: {
     message: 'NICKNAME_EXISTS',
     code: 400
   }
 }   
+```
 
 Success response:
 Status: 201
