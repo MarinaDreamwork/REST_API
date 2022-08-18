@@ -8,7 +8,6 @@ const createUser = (payload) => {
       if (error) {
         reject(error);
       }
-      console.log(`new user was added: ${results.rows[0]}`);
       resolve(results.rows[0]);
     });
   });
