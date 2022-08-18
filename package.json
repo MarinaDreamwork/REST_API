@@ -9,9 +9,7 @@
   },
   "scripts": {
     "start": "NODE_ENV=production node app.js",
-    "serve": "cross-env NODE_ENV=development nodemon app.js",
-    "heroku-prebuild": "npm install",
-    "heroku-postbuild": "npm start"
+    "serve": "cross-env NODE_ENV=development nodemon app.js"
   },
   "keywords": [
     "node",
