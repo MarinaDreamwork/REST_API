@@ -15,12 +15,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors({
   credentials: true,
-  origin: ['http://127.0.0.1:5432'],
+  origin: '*',
   optionsSuccessStatus: 200
 }));
 
 app.use('/', routes);
-app.get('/', (req, res) => {
+app.get('*', (req, res) => {
   res.end('<h1>Welcome to REST API service Nodejs and Express</h1>');
 });
 
