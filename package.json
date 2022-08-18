@@ -8,9 +8,9 @@
     "npm": "8.3.2"
   },
   "scripts": {
-    "start": "cross-env NODE_ENV=production node app.js",
+    "start": "NODE_ENV=production node app.js",
     "serve": "cross-env NODE_ENV=development nodemon app.js",
-    "heroku-deploy": "NODE_ENV=production node app.js"
+    "prod-deploy": "cross-env NODE_ENV=production node app.js"
   },
   "keywords": [
     "node",
