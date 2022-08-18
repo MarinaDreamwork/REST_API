@@ -40,7 +40,7 @@ request body should include this fileds:
 }
 ```
 
-Field **email** should be in email format or server will return an error:
+![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png) Field **email** should be in email format or server will return an error:
 ```json
 { 
   error: [
@@ -54,7 +54,7 @@ Field **email** should be in email format or server will return an error:
 }
 ```
 
-Field **email** should be unique or server will return an error:
+![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png) Field **email** should be unique or server will return an error:
 ```json
 {
   error: {
@@ -64,7 +64,7 @@ Field **email** should be unique or server will return an error:
 }
 ```
 
-Field **password** should include at least one uppercase letter, one number, minimum - 8 chars at length or server will return an error:
+![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png) Field **password** should include at least one uppercase letter, one number, minimum - 8 chars at length or server will return an error:
 ```json
 { 
   error: [
@@ -78,7 +78,7 @@ Field **password** should include at least one uppercase letter, one number, min
 }
 ```
 
-Field **nickname** should not be empty or server will return an error:
+![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png) Field **nickname** should not be empty or server will return an error:
 ```json
  { 
   error: [
@@ -92,7 +92,7 @@ Field **nickname** should not be empty or server will return an error:
 }
 ```
 
- Field **nickname** should be unique or server will return an error:
+ ![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png) Field **nickname** should be unique or server will return an error:
  ```json
  {
   error: {
