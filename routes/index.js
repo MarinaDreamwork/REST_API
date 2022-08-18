@@ -3,7 +3,6 @@ const router = express.Router({
   mergeParams: true
 });
 
-router.use('/', require('./main.routes'));
 router.use('/signin', require('./signin.routes'));
 router.use('/login', require('./login.routes'));
 router.use('/token', require('./token.routes'));
