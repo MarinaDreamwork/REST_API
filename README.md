@@ -112,3 +112,77 @@ response body:
   expire: 1800
 }
 ```
+### Method: POST /login
+request body should include this fileds:
+```json
+{
+  email: "a@gmail.com",
+  password: "ABCdef123"
+}
+```
+
+![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png) Field **email** should be the same as was in signing in or server will return an error:
+```json
+{
+  error: {
+    message: 'EMAIL_NOT_FOUND',
+    code: 400
+  }
+}
+```
+![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png) Field **password** should be the same as was in signing in or server will return an error:
+```json
+{
+  error: {
+    message: 'INVALID_PASSWORD',
+    code: 400
+  }
+}
+```
+![#c5f015](https://via.placeholder.com/15/c5f015/c5f015.png) Success response:
+Status: 201
+response body: 
+
+```json
+{
+  token: "ddbfvkdjzfvkjzbdf554dfznfds,jh",
+  expire: 1800
+}
+```
+
+### Method: POST /token
+request body should include this fileds:
+```json
+{
+  token: "ddbfvkdjzfvkjzbdf554dfznfds,jh",
+  expire: 1800
+}
+```
+![#f03c15](https://via.placeholder.com/15/f03c15/f03c15.png) Field **token** should be the same as is in base and equal to the secret token in app environment or server will return an error:
+```json
+{
+  error: {
+    message: 'Unauthorized',
+    code: 400
+  }
+}
+```
+![#c5f015](https://via.placeholder.com/15/c5f015/c5f015.png) Success Response:
+Status: 201
+response body: 
+
+```json
+{
+  token: "ddbfvkdjzfvkjzbdf554dfznfds,jh",
+  expire: 1800
+}
+```
+
+### Method: POST /logout
+Request header should have:
+Authorization: "Bearer dvdalkjvhaskjhdfh;SLKDVK;JDSVK.DSJ"
+
+![#c5f015](https://via.placeholder.com/15/c5f015/c5f015.png) Success response:
+Status: 200
+response body: null
+User token will be deleted in service base
