@@ -88,14 +88,6 @@ router.post('/tag', auth, async (req, res) => {
     const { tags } = req.body; 
     const isAllTagsExists = await isAllTagsArePresent(tags, authUserUid);
     console.log('is', isAllTagsExists);
-    // const isFind = await findExistsTags(tags);
-    // console.log(!isFind);
-    // if(!isFind) {
-    //   res.send(null);
-    // } else {
-    //   res.send({ tags: [isFind] });
-    // }
-    //const isExist = await isAllTagsArePresent(tags, authUserUid);
     res.send({
       tags: isAllTagsExists
     });

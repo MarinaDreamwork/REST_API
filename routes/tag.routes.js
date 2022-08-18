@@ -12,7 +12,7 @@ const router = express.Router({
 router
   .route('/')
   .post(auth, 
-  check('name', 'Максимальная длина длина поля - 30 знаков').isLength({ max: 30 }), 
+  check('name', 'Max length is 40 chars').isLength({ max: 40 }), 
   async (req, res) => {
   try {
     const authUserUid = req.user.userid;
@@ -27,6 +27,7 @@ router
           }
         });
       }
+      // сделать sort опциональным
       const newTag = await createNewTag(authUserUid, name, sortorder);
       res.send({
         id: newTag.id,
@@ -52,7 +53,6 @@ router
       const sortedField = filteredParams.join().replace('sortBy', '').toLowerCase();
       console.log('sorted', sortedField);
       const dataPage = await getMultiple(page, pageSize, authUserUid, sortedField);
-      //Number(page), Number(pageSize), authUserUid, sortedField
       res.json({
         ...dataPage
       });
