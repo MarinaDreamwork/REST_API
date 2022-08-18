@@ -30,7 +30,7 @@
 | DELETE | /user/tag/{id} | Remove tag from authorized user by id |
 | GET | /user/tag/my | Receiving all authorized user tags |
 
-#### Method: POST /signin
+## Method: POST /signin
 request body should include this fileds:
 ```json
 {
