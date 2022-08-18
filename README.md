@@ -1,10 +1,81 @@
-## Base API url []
+## Base API url [https://rest-api-backend-app.herokuapp.com/]
+## This App was implemented with Node.js, Express.js, PostgreSql
+### If you want to install this app in your localhost:
+1. clone this repository and add .env file for your secret data;
+2. Define environment valiable for the port for the server listening (PORT);
+3. Add environment valiables data for your Postgres DB (DB_HOST, DB_NAME, DB_USER, DB_PASSWORD);
+4. For creating jwt-tokens define secret token as TOKEN in your .env file;
+5. For the development mode use command npm run serve
+6. For the production mode use command npm run prod-deploy
+
+### If you want to try with deployed app
+1. Base URL is [https://rest-api-backend-app.herokuapp.com/];
+2. Use methods and instructions below for response data:
 
 | Method | TAGS | Description |
 | ------ | ------ | ------ |
 | POST | /signin | Sign up new user |
+request body should include this fileds:
+{
+  email: "a@gmail.com",
+  password: "ABCdef123",
+  nickname: "abc"
+}
+
+field email should be in email format or server will return an error:
+{ error: [
+  {
+    "value": "hostel",
+    "msg": "Email format is not correct",
+    "param": "email",
+    "location": "body"
+  }
+] }
+field email should be unique or server will return an error:
+{
+  error: {
+    message: 'EMAIL_EXISTS',
+    code: 400
+  }
+}
+
+field password should include at least one uppercase letter, one number, minimum - 8 chars at length or server will return an error:
+{ error: [
+  {
+    "value": "jhdgjdsh",
+    "msg": "Password should have at least one number",
+    "param": "password",
+    "location": "body"
+  }
+] }
+
+field nickname should not be empty or server will return an error:
+ { error: [
+  {
+    "value": "",
+    "msg": "Nickname should not be empty",
+    "param": "nickname",
+    "location": "body"
+  }
+ ] }  
+ field nickname should be unique or server will return an error:
+ {
+  error: {
+    message: 'NICKNAME_EXISTS',
+    code: 400
+  }
+}   
+
+Status: 201
+response body: 
+{
+  token: "ddbfvkdjzfvkjzbdf554dfznfds,jh",
+  expire: 1800
+}
+
 | POST | /login | Log in existed user |
 | POST | /token | Update token |
+| POST | /logout | Delete token and user from service |
 | GET | /user | Get authorized user info |
 | PUT | /user | Update authorized user info |
 | DELETE | /user | Remove user token and user |

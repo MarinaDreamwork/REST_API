@@ -10,20 +10,20 @@ const router = express.Router({
 });
 
 router.post('/', [
-  check('email', 'Некорректный email').isEmail(),
+  check('email', 'Email format is not correct').isEmail(),
   check('password')
     .matches(/\d{1,}/)
-    .withMessage('Пароль должен содержать хотя бы одну цифру')
+    .withMessage('Password should have at least one number')
     .bail()
     .matches(/[A-Z]{1,}/)
-    .withMessage('Пароль должен содержать хотя бы одну заглавную букву')
+    .withMessage('Password should have at least one uppercase letter')
     .bail()
     .matches(/[a-z]{1,}/)
-    .withMessage('Пароль должен содержать как минимум одну строчную букву')
+    .withMessage('Password should have at least one lowercase letter')
     .bail()
     .isLength({ min: 8 })
-    .withMessage('Минимальная длина пароля - 8 символов'),
-  check('nickname', 'Никнэйм должен быть заполнен').notEmpty(),
+    .withMessage('Min password length is 8 chars'),
+  check('nickname', 'Nickname should not be empty').notEmpty(),
   async (req, res) => {
   try {
     const errors = validationResult(req);
