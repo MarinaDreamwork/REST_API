@@ -22,7 +22,7 @@ class TokenService {
 
   validateToken(token) {
     try {
-      return jwt.verify(token, process.env.token);
+      return jwt.verify(token, process.env.TOKEN);
     } catch(error) {
       return null;
     }

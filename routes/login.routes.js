@@ -1,6 +1,6 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
-const { getUserByEmail, getEmail } = require('../models/user.model');
+const { getUserByEmail } = require('../models/user.model');
 const tokenService = require('../services/token.service');
 const router = express.Router({
   mergeParams: true

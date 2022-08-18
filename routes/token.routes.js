@@ -1,11 +1,12 @@
 const express = require('express');
 const tokenService = require('../services/token.service');
+const auth = require('../middleware/auth.middleware');
 const { errorServer, errorUnAuthorized } = require('../utils/errors');
 const router = express.Router({
   mergeParams: true
 });
 
-router.post('/', async (req, res) => {
+router.post('/', auth, async (req, res) => {
   try {
     const { token } = req.body;
     const isValidToken = tokenService.validateToken(token);
