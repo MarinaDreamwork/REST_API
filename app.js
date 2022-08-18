@@ -9,7 +9,6 @@ const PORT = process.env.PORT || 3000;
 const { migrate } = require('postgres-migrations');
 
 app.set('PORT', PORT);
-console.log('PORT', PORT);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -26,7 +25,6 @@ if(process.env.NODE_ENV === 'production') {
   app.get('/', (req, res) => {
     res.end('<h1>Welcome to REST API service Nodejs and Express</h1>');
   });
-  console.log('process.env', process.env);
 } else {
   console.log('development');
 }
