@@ -30,7 +30,7 @@
 | DELETE | /user/tag/{id} | Remove tag from authorized user by id |
 | GET | /user/tag/my | Receiving all authorized user tags |
 
-**Method: POST /signin**
+#### Method: POST /signin
 request body should include this fileds:
 ```json
 {
@@ -105,7 +105,9 @@ Field **nickname** should not be empty or server will return an error:
 Success response:
 Status: 201
 response body: 
+```json
 {
   token: "ddbfvkdjzfvkjzbdf554dfznfds,jh",
   expire: 1800
 }
+```
