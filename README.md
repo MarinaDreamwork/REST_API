@@ -102,11 +102,9 @@ Field **nickname** should not be empty or server will return an error:
 }   
 ```
 
-```dif
-(https://via.placeholder.com/15/c5f015/c5f015.png) `#c5f015` Success response:
+![#c5f015](https://via.placeholder.com/15/c5f015/c5f015.png) Success response:
 Status: 201
 response body: 
-```
 
 ```json
 {
