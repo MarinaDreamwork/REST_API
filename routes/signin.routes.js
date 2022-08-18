@@ -31,7 +31,6 @@ router.post('/', [
       return res.status(400).json({ errors: errors.array() })
     }
     const { email, password, nickname } = req.body;
-    console.log(email, password, nickname);
     const isUserExist = await getUserByEmail(email);
     console.log('isExist', isUserExist);
     if(isUserExist) {
@@ -47,12 +46,12 @@ router.post('/', [
       })
     }
     const hashedPassword = await bcrypt.hash(password, 12);
-    console.log(hashedPassword);
     const newUser = await createUser({
       email: email,
       password: hashedPassword,
       nickname: nickname
     });
+    console.log('newUser', newUser);
     const tokenInfo = tokenService.generate({ userid: newUser.uid });
     await tokenService.save(newUser.uid, tokenInfo.token);
     res.status(201).send(tokenInfo);

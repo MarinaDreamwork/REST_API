@@ -15,8 +15,11 @@ router
   .get(auth, async (req, res) => {
     try {
       const { userid } = req.user;
+      console.log('userid', userid);
       const currentUser = await getCurrentUser(userid);
+      console.log('currentuser', currentUser);
       const currentUserTags = await getUserTags(userid);
+      console.log('currusertags', currentUserTags);
       res.send({ ...currentUser, tags: currentUserTags });
     } catch (error) {
       errorServer(res);

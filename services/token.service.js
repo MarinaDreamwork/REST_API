@@ -11,10 +11,8 @@ class TokenService {
 
   async save(userid, updatedToken) {
     const data = await findToken({ field: 'userid', value: userid });
-    console.log('data', data);
     if(data) {
       const newData = await updateToken(userid, updatedToken); 
-      console.log('newData in data', newData);
       return newData;
     }
     const newToken = await createToken(userid, updatedToken);
